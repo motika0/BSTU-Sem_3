@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+class Sudoku {
+    constructor() {
+        this.board = this.generateEmptyBoard();
+    }
+
+    generateEmptyBoard() {
+        return Array(9).fill(null).map(() => Array(9).fill(null));
+    }
+
+    resetBoard() {
+        this.board = this.generateEmptyBoard();
+    }
+
+    checkErrors() {
+        let isValid = true;
+
+        for (let row = 0; row < 9; row++) {
+            const rowSet = new Set();
+            for (let col = 0; col < 9; col++) {
+                const value = this.board[row][col];
+                if (value && rowSet.has(value)) {
+                    console.error(`Ошибка в строке ${row + 1}: дублирующее значение ${value}`);
+                    isValid = false;
+                } else {
+                    rowSet.add(value);
+                }
+            }
+        }
+
+        for (let col = 0; col < 9; col++) {
+            const colSet = new Set();
+            for (let row = 0; row < 9; row++) {
+                const value = this.board[row][col];
+                if (value && colSet.has(value)) {
+                    console.error(`Ошибка в столбце ${col + 1}: дублирующее значение ${value}`);
+                    isValid = false;
+                } else {
+                    colSet.add(value);
+                }
+            }
+        }
+
+        for (let boxRow = 0; boxRow < 3; boxRow++) {
+            for (let boxCol = 0; boxCol < 3; boxCol++) {
+                const boxSet = new Set();
+                for (let row = 0; row < 3; row++) {
+                    for (let col = 0; col < 3; col++) {
+                        const r = boxRow * 3 + row;
+                        const c = boxCol * 3 + col;
+                        const value = this.board[r][c];
+                        if (value && boxSet.has(value)) {
+                            console.error(`Ошибка в квадрате (${boxRow + 1}, ${boxCol + 1}): дублирующее значение ${value}`);
+                            isValid = false;
+                        } else {
+                            boxSet.add(value);
+                        }
+                    }
+                }
+            }
+        }
+
+        return isValid;
+    }
+
+    resolveSudoku(grid) {
+        const empty = this.findEmptyCell(grid);
+        if (!empty) return true;
+
+        const numbers = this.getRandomNumbers();
+        for (let num of numbers) {
+            if (this.isValid(grid, empty.row, empty.column, num)) {
+                grid[empty.row][empty.column] = num;
+                if (this.resolveSudoku(grid)) return true;
+                grid[empty.row][empty.column] = null;
+            }
+        }
+        return false;
+    }
+
+    findEmptyCell(grid) {
+        for (let row = 0; row < 9; row++) {
+            for (let column = 0; column < 9; column++) {
+                if (grid[row][column] === null) {
+                    return { row, column };
+                }
+            }
+        }
+        return null;
+    }
+
+    getRandomNumbers() {
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        for (let i = numbers.length - 1; i >= 0; i--) {
+            const randomIndex = Math.floor(Math.random() * (i + 1));
+            [numbers[i], numbers[randomIndex]] = [numbers[randomIndex], numbers[i]];
+        }
+        return numbers;
+    }
+
+    isValid(board, row, col, num) {
+        for (let x = 0; x < 9; x++) {
+            if (board[row][x] === num || board[x][col] === num ||
+                board[3 * Math.floor(row / 3) + Math.floor(x / 3)][3 * Math.floor(col / 3) + x % 3] === num) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+const sudoku = new Sudoku();
+sudoku.resolveSudoku(sudoku.board);
+console.log(sudoku.board);
+sudoku.checkErrors();
+    </script>
+</body>
+</html>

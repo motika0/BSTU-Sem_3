@@ -1,0 +1,42 @@
+Class: Person
+Assembly: ConsoleApp1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Has Public Constructors: True
+Public Methods: get_Name, set_Name, get_Age, set_Age, Greet, Equals, GetHashCode, GetType, ToString
+Fields and Properties: Property: Name, Property: Age
+Implemented Interfaces: 
+
+Class: Car
+Assembly: ConsoleApp1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Has Public Constructors: True
+Public Methods: get_Model, set_Model, get_Year, set_Year, Drive, Equals, GetHashCode, GetType, ToString
+Fields and Properties: Property: Model, Property: Year
+Implemented Interfaces: 
+
+Класс: Person
+Асемблай: ConsoleApp1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Имеет публичный конструктор: True
+Публичные метода: get_Name, set_Name, get_Age, set_Age, Greet, Equals, GetHashCode, GetType, ToString
+Части и свойства: Свойство: Name, Свойство: Age
+Интерфейсы: 
+
+Класс: Машина
+Асемблай: Класс не найден
+Имеет публичный конструктор: False
+Публичные метода: 
+Части и свойства: 
+Интерфейсы: 
+
+Класс: Человек
+Асемблай: Класс не найден
+Имеет публичный конструктор: False
+Публичные метода: 
+Части и свойства: 
+Интерфейсы: 
+
+Класс: Машина
+Асемблай: Класс не найден
+Имеет публичный конструктор: False
+Публичные метода: 
+Части и свойства: 
+Интерфейсы: 
+

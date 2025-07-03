@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 1440px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .wrapenter {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 5px 800px 5px 5px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: lightgreen;
+        }
+
+        .add, .add1 {
+            padding: 20px;
+            background-color: rgb(89, 151, 89);
+            border: 0;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .wrap1 {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            border: 1px solid gray;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .task-title {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .edit-btn {
+            padding: 10px;
+            background-color: rgb(50, 102, 197);
+            border: 0;
+            color: white;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .delete-btn {
+            padding: 10px;
+            background-color: rgb(255, 69, 0);
+            border: 0;
+            color: white;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Список дел</h1>
+        <div class="wrapenter">
+            <input type="text" id="taskTitle" placeholder="Введите название задачи">
+            <button class="add" onclick="addTask()">Добавить</button>
+        </div>
+
+        <div>
+            <div class="wrap1">
+                <button class="add1" onclick="filterTasks('all')">Показать все</button>
+                <button class="add1" onclick="filterTasks('completed')">Показать выполненные</button>
+                <button class="add1" onclick="filterTasks('notCompleted')">Показать не выполненные</button>
+            </div>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="todolist.js"></script>
+</body>
+<script>
+    class Task {
+    constructor(id, title, isCompleted = false) {
+        this.id = id;
+        this.title = title;
+        this.isCompleted = isCompleted;
+    }
+
+    changeTitle(newTitle) {
+        this.title = newTitle;
+    }
+
+    toggleCompletion() {
+        this.isCompleted = !this.isCompleted;
+    }
+}
+
+class Todolist {
+    constructor(id, title) {
+        this.id = id;
+        this.title = title;
+        this.tasks = [];
+    }
+
+    addTask(task) {
+        this.tasks.push(task);
+    }
+
+    removeTask(taskId) {
+        this.tasks = this.tasks.filter(task => task.id !== taskId);
+    }
+
+    filterTasks(isCompleted) {
+        return this.tasks.filter(task => task.isCompleted === isCompleted);
+    }
+}
+
+const todoList = new Todolist(1, "Мой список дел");
+
+function addTask() {
+    const taskTitle = document.getElementById('taskTitle').value;
+    if (taskTitle) {
+        const taskId = todoList.tasks.length + 1;
+        const newTask = new Task(taskId, taskTitle);
+        todoList.addTask(newTask);
+        document.getElementById('taskTitle').value = '';
+        renderTasks();
+    }
+}
+
+function renderTasks(filter = 'all') {
+    const taskList = document.getElementById('taskList');
+    taskList.innerHTML = '';
+
+    let tasksToRender = todoList.tasks;
+    if (filter === 'completed') {
+        tasksToRender = todoList.filterTasks(true);
+    } else if (filter === 'notCompleted') {
+        tasksToRender = todoList.filterTasks(false);
+    }
+
+    tasksToRender.forEach(task => {
+        const taskItem = document.createElement('li');
+        taskItem.innerHTML = 
+        ` <input type="checkbox" ${task.isCompleted ? 'checked' : ''} onclick="toggleCompletion(${task.id})">
+            <span class="task-title">${task.title}</span>
+            <div>
+                <button class="edit-btn" onclick="editTask(${task.id})">Редактировать</button>
+                <button class="delete-btn" onclick="deleteTask(${task.id})">Удалить</button>
+            </div>`
+            ;
+        taskList.appendChild(taskItem);
+    });
+}
+
+function toggleCompletion(taskId) {
+    const task = todoList.tasks.find(task => task.id === taskId);
+    if (task) {
+        task.toggleCompletion();
+        renderTasks();
+    }
+}
+
+function deleteTask(taskId) {
+    todoList.removeTask(taskId);
+    renderTasks();
+}
+
+function editTask(taskId) {
+    const newTitle = prompt('Введите новое название задачи:');
+    if (newTitle) {
+        const task = todoList.tasks.find(task => task.id === taskId);
+        if (task) {
+            task.changeTitle(newTitle);
+            renderTasks();
+        }
+    }
+}
+
+function filterTasks(filter) {
+    renderTasks(filter);
+}
+
+document.addEventListener('DOMContentLoaded', renderTasks);
+
+</script>
+</html>

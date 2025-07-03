@@ -1,0 +1,7 @@
+D:\БГТУ\3 семестр\ООП\КР\вариант 2 enum дни недели\bin\Debug\вариант 2 enum дни недели.exe.config
+D:\БГТУ\3 семестр\ООП\КР\вариант 2 enum дни недели\bin\Debug\вариант 2 enum дни недели.exe
+D:\БГТУ\3 семестр\ООП\КР\вариант 2 enum дни недели\bin\Debug\вариант 2 enum дни недели.pdb
+D:\БГТУ\3 семестр\ООП\КР\вариант 2 enum дни недели\obj\Debug\вариант 2 enum дни недели.csproj.AssemblyReference.cache
+D:\БГТУ\3 семестр\ООП\КР\вариант 2 enum дни недели\obj\Debug\вариант 2 enum дни недели.csproj.CoreCompileInputs.cache
+D:\БГТУ\3 семестр\ООП\КР\вариант 2 enum дни недели\obj\Debug\вариант 2 enum дни недели.exe
+D:\БГТУ\3 семестр\ООП\КР\вариант 2 enum дни недели\obj\Debug\вариант 2 enum дни недели.pdb

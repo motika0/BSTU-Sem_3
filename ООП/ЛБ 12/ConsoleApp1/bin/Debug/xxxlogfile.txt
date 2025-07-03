@@ -1,0 +1,9 @@
+2024-12-05 14:53:49 - Create Directory: YMLInspect
+2024-12-05 14:53:49 - Create File: YMLInspect/sample.txt
+2024-12-05 14:53:49 - Copy File: From YMLInspect/sample.txt to YMLInspect/sample_copy.txt
+2024-12-05 14:53:49 - Rename File: From YMLInspect/sample_copy.txt to YMLInspect/sample_renamed.txt
+2024-12-05 14:53:49 - Delete File: YMLInspect/sample.txt
+2024-12-05 14:53:49 - Save Directory Info: xxxdirinfo.txt
+2024-12-12 18:12:55 - Create Directory: YMLInspect
+2024-12-12 18:12:55 - Create File: YMLInspect/sample.txt
+2024-12-12 18:12:55 - Copy File: From YMLInspect/sample.txt to YMLInspect/sample_copy.txt

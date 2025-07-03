@@ -1,0 +1,7 @@
+D:\БГТУ\3 семестр\ООП\ЛБ 1\ConsoleApp3\bin\Debug\ConsoleApp3.exe.config
+D:\БГТУ\3 семестр\ООП\ЛБ 1\ConsoleApp3\bin\Debug\ConsoleApp3.exe
+D:\БГТУ\3 семестр\ООП\ЛБ 1\ConsoleApp3\bin\Debug\ConsoleApp3.pdb
+D:\БГТУ\3 семестр\ООП\ЛБ 1\ConsoleApp3\obj\Debug\ConsoleApp3.csproj.AssemblyReference.cache
+D:\БГТУ\3 семестр\ООП\ЛБ 1\ConsoleApp3\obj\Debug\ConsoleApp3.csproj.CoreCompileInputs.cache
+D:\БГТУ\3 семестр\ООП\ЛБ 1\ConsoleApp3\obj\Debug\ConsoleApp3.exe
+D:\БГТУ\3 семестр\ООП\ЛБ 1\ConsoleApp3\obj\Debug\ConsoleApp3.pdb

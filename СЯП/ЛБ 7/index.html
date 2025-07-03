@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+// 1. 
+const person = {
+    firstName: 'кусь',
+    lastName: 'кусь-кусь',
+    age: 15,
+    greet() {
+        console.log(`Привет, меня зовут ${this.firstName} ${this.lastName}.`);
+    },
+    ageAfterYears(years) {
+        return this.age + years;
+    }
+};
+
+person.greet();
+console.log(`Через 5 лет мне будет ${person.ageAfterYears(5)} лет.`);
+
+// 2. Объект car с методом getInfo
+const car = {
+    model: 'esh',
+    year: 2024,
+    getInfo() {
+        console.log(`Модель: ${this.model}, Год: ${this.year}`);
+    }
+};
+
+car.getInfo()
+
+// 3. Функция-конструктор Book
+function Book(title, author) {
+    this.title = title;
+    this.author = author;
+    this.getTitle = function() {
+        return this.title;
+    };
+    this.getAuthor = function() {
+        return this.author; 
+    };
+}
+
+const book = new Book('Капитанская дочка', 'Пушкин');
+book.title = 'Капитанская дочка';
+console.log(`Книга: ${book.getTitle()}, Автор: ${book.getAuthor()}`);
+
+// 4. 
+const team = {
+    players: ['1', '2', '3'],
+    printPlayers: function() {
+        this.players.forEach(function(player) {
+            console.log(`Игрок: ${player}`);
+        });
+    }
+};
+
+team.printPlayers();
+
+
+// 5. Модуль counter
+const counter = (function() {
+    let count = 0; // Инкапсулированная переменная
+
+    return {
+        increment: function() {
+            count++;
+            return count;
+        },
+        decrement: function() {
+            count--;
+            return count;
+        },
+        getCount: function() {
+            return count;
+        }
+    };
+})();
+
+console.log(counter.increment()); // 1
+console.log(counter.increment()); // 2
+console.log(counter.decrement()); // 1
+console.log(counter.getCount()); // 1
+
+// 6. Объект item со свойством price
+const item = {
+    price: 100
+};
+
+Object.defineProperty(item, 'price', {
+    writable: true,
+    configurable: true,
+    enumerable: true
+});
+
+item.price = 150;
+console.log(`Цена: ${item.price}`);
+
+Object.defineProperty(item, 'price', {
+    writable: false,
+    configurable: false
+});
+
+item.price = 200; 
+console.log(`Цена после попытки изменить: ${item.price}`);
+
+// 7. Объект circle с геттером для площади
+const circle = {
+    radius: 5,
+    get area() {
+        return Math.PI * this.radius * this.radius;
+    },
+    get radiusValue() {
+        return this.radius;
+    },
+    set radiusValue(value) {
+        this.radius = value;
+    }
+};
+
+console.log(`Площадь круга: ${circle.area}`);
+circle.radiusValue = 10;
+console.log(`Новая площадь круга: ${circle.area}`);
+
+// 8. Объект car с неизменяемыми свойствами
+const carImmutable = {};
+Object.defineProperty(carImmutable, 'make', {
+    value: 'uu',
+    writable: true,
+    configurable: true
+});
+Object.defineProperty(carImmutable, 'model', {
+    value: 'gjgg',
+    writable: true,
+    configurable: true
+});
+Object.defineProperty(carImmutable, 'year', {
+    value: 2784,
+    writable: true,
+    configurable: true
+});
+
+Object.defineProperty(carImmutable, 'make', { writable: false, configurable: false });
+Object.defineProperty(carImmutable, 'model', { writable: false, configurable: false });
+Object.defineProperty(carImmutable, 'year', { writable: false, configurable: false });
+
+console.log(carImmutable); 
+
+// 9. Массив с геттером для суммы
+const numbers = [1, 2, 3];
+Object.defineProperty(numbers, 'sum', {
+    get: function() {
+        return this.reduce((a, b) => a + b, 0);
+    },
+    enumerable: false 
+});
+
+console.log(`Сумма: ${numbers.sum}`);
+
+// 10. Объект rectangle с геттерами и сеттерами
+const rectangle = {
+    width: 5,
+    height: 10,
+    get area() {
+        return this.width * this.height;
+    },
+    get widthValue() {
+        return this.width;
+    },
+    set widthValue(value) {
+        this.width = value;
+    },
+    get heightValue() {
+        return this.height;
+    },
+    set heightValue(value) {
+        this.height = value;
+    }
+};
+
+console.log(`Площадь прямоугольника: ${rectangle.area}`); 
+rectangle.widthValue = 7; 
+console.log(`Новая площадь прямоугольника: ${rectangle.area}`);
+
+// 11. Объект user с геттерами и сеттерами для полного имени
+const user = {
+    firstName: 'Петр',
+    lastName: 'Петров',
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    set fullName(name) {
+        const chapter = name.split(' ');
+        this.firstName = chapter[0];
+        this.lastName = chapter[1];
+    }
+};
+
+console.log(`Полное имя: ${user.fullName}`); 
+user.fullName = 'Сергей Сергеев';
+console.log(`Новое полное имя: ${user.fullName}`); 
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

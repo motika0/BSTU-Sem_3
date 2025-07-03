@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script> 
+
+ // 1 заданка
+   /* function makeCounter() {
+        let currentCount = 1;
+
+        return function() {
+            return currentCount++;
+        };
+    }
+        let counter = makeCounter();
+
+        alert( counter()); // 1
+        alert( counter()); // 2
+        alert( counter()); 
+
+        let counter2= makeCounter();
+        alert( counter2() ); //1
+    */
+/* let currrentCount=1;
+    function makeCounterr() {
+        return function(){
+            return currrentCount++;
+        };
+        }
+    let counterr = makeCounterr();
+    let counterr2 = makeCounterr();
+
+    alert( counterr()); //1
+    alert( counterr()); //2
+
+    alert( counterr2()); //3
+    alert( counterr2()); //4
+    */
+
+    // 2 заданка
+
+function countobiem(a,b,c) {
+    return function(b) {
+        return function(c) {
+            return a * b * c;
+        };
+    };
+}
+
+const obiem = countobiem(5)(10)(2);
+console.log(obiem);
+
+function countobiem2(a1) {
+    return function(b1, c1) {
+        return a1 * b1 * c1;
+    };
+}
+const obiem1 = countobiem2(5);
+
+const obiem3 = obiem1(10, 2); 
+const obiem4 = obiem1(4, 3);  
+
+console.log(obiem3); // Вывод: 100
+console.log(obiem4); // Вывод: 60
+
+
+
+//3 заданка
+function* moveObject() {
+    let cord = { x: 0, y: 0 };
+    
+    while (true) {
+        const command = yield cord;
+        
+        switch (command) {
+            case 'left':
+                for (let i = 0; i < 10; i++) {
+                    cord.x -= 1;
+                    console.log(`Координаты: x: ${cord.x}, y: ${cord.y}`);
+                }
+                break;
+            case 'right':
+                for (let i = 0; i < 10; i++) {
+                    cord.x += 1;
+                    console.log(`Координаты: x: ${cord.x}, y: ${cord.y}`);
+                }
+                break;
+            case 'up':
+                for (let i = 0; i < 10; i++) {
+                    cord.y += 1;
+                    console.log(`Координаты: x: ${cord.x}, y: ${cord.y}`);
+                }
+                break;
+            case 'down':
+                for (let i = 0; i < 10; i++) {
+                    cord.y -= 1;
+                    console.log(`Координаты: x: ${cord.x}, y: ${cord.y}`);
+                }
+                break;
+            case 'exit':
+                console.log('Завершение работы...');
+                return;
+            default:
+                console.log('Неверная команда');
+                break;
+        }
+    }
+}
+
+const generator = moveObject();
+generator.next(); 
+
+while (true) {
+    const user = prompt("Введите направление (left, right, up, down) или 'exit' для выхода:");
+    if (user === 'exit') {
+        generator.next(user); 
+        break
+    }
+    generator.next(user);
+}
+
+// 4 заданка
+
+var globalVar = "глоб переменная";
+function globalFunction() {
+    return "глоб функция ";
+}
+
+console.log(window);
+
+window.globalVar = "теперь уже новая глоб переменная";
+window.globalFunction = () => "Переопределена глоб функция";
+
+console.log(globalVar); 
+console.log(window.globalFunction());
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

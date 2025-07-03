@@ -1,0 +1,7 @@
+D:\БГТУ\3 семестр\ООП\КР\итог\bin\Debug\итог.exe.config
+D:\БГТУ\3 семестр\ООП\КР\итог\bin\Debug\итог.exe
+D:\БГТУ\3 семестр\ООП\КР\итог\bin\Debug\итог.pdb
+D:\БГТУ\3 семестр\ООП\КР\итог\obj\Debug\итог.csproj.AssemblyReference.cache
+D:\БГТУ\3 семестр\ООП\КР\итог\obj\Debug\итог.csproj.CoreCompileInputs.cache
+D:\БГТУ\3 семестр\ООП\КР\итог\obj\Debug\итог.exe
+D:\БГТУ\3 семестр\ООП\КР\итог\obj\Debug\итог.pdb

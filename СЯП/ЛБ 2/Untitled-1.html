@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // задание 1
+        function basicOperation(operation, value1, value2) {
+    let otvet;
+
+    switch (operation) {
+        case '+':
+            otvet = value1 + value2;
+            break;
+        case '-':
+            otvet = value1 - value2;
+            break;
+        case '*':
+            otvet = value1 * value2;
+            break;
+        case '/':
+            otvet = value1 / value2;
+            break;
+        default:
+            throw new Error("Недопустимая операция");
+    }
+    return otvet;
+}
+let operation = prompt("Введите оператор (+, -, *, /):");
+let nummm1 = Number(prompt("Введите значение"));
+let nummm2 = Number(prompt("Введите значение"));
+let otvet = basicOperation(operation,nummm1,nummm2);
+console.log(otvet); 
+
+// задание 2
+function Cubes(n) {
+    let sum = 0; 
+
+    for (let i = 1; i <= n; i++) {
+        sum += i ** 3; 
+    }
+    return sum;
+}
+
+let n = 3;
+let otvet1 = Cubes(n);
+console.log(`Сумма кубов чисел от 1 до ${n} равна: ${otvet1}`);
+
+//задание 3
+function arifmet(numbers) {
+    if (numbers.length === 0) {
+        return 0; //
+    }
+
+    let sum = 0; 
+
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i]; 
+    }
+
+    const srednee = sum / numbers.length;
+    return srednee; 
+}
+
+const nums = [10, 20, 30, 40, 50];
+const srednee = arifmet(nums);
+console.log(`Среднее арифметическое: ${srednee}`);
+
+//задание 4
+
+function zadanie4(str) {
+    let readyStr = '';
+
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+ 
+        if ((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z')) {
+            readyStr += char; 
+        }
+    }
+
+    let rotateStr = ''; 
+
+    for (let j = readyStr.length - 1; j >= 0; j--) {
+        rotateStr += readyStr[j];
+    }
+    return rotateStr;
+}
+
+let str1 = "privetmir";
+console.log(zadanie4(str1));
+
+let str2 = "privet4mirфывапр";
+console.log(zadanie4(str2));
+
+//задание 5
+
+function zadanie5(n1, s) {
+    let resukt5 = ''; 
+
+    if (n1 < 0) {
+        return ''; 
+    }
+
+    for (let i = 0; i < n1; i++) {
+        resukt5 += s; 
+    }
+    return resukt5;
+}
+
+let n1 = 3;
+let s = "Hello";
+console.log(zadanie5(n1, s)); // Вывод: "HelloHelloHello"
+
+//задание 6
+function zadanie6(arr1, arr2) {
+    const arr3 = [];
+
+    for (let i = 0; i < arr1.length; i++) {
+        const item = arr1[i];
+
+        if (!arr2.includes(item)) {
+            arr3.push(item);
+        }
+    }
+
+    return arr3; 
+}
+
+const arr1 = ["aaaaa", "bbbbbb", "cccccc", "dddddd"];
+const arr2 = ["bbbbbb", "dddddd", "eeeee"];
+
+const result = zadanie6(arr1, arr2);
+console.log(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

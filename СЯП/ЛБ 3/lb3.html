@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //zadanie1
+        const mass1 = [1, [1, 2, [3, 4]], [2, 4]];
+
+const mass2 = (arr) => {
+    return arr.reduce(function(previousValue, item) {
+        if (Array.isArray(item)) {
+            return previousValue.concat(mass2(item));
+        }
+        return previousValue.concat(item);
+    }, []);
+};
+
+const result = mass2(mass1);
+console.log(result); 
+
+//zadanie2
+const summass = (array) => {
+    return array.reduce(function(previousValue, item) {
+        return previousValue + (Array.isArray(item) ? summass(item) : item);
+    }, 0);
+};
+
+const nonamemass = [1, [2, 3], [[4, 5], 6]];
+console.log(summass(nonamemass));
+
+//3
+
+const students = [
+    { name: 'Alice', age: 18, groupId: 1 },
+    { name: 'Bob', age: 16, groupId: 1 },
+    { name: 'Charlie', age: 19, groupId: 2 },
+    { name: 'David', age: 17, groupId: 2 },
+    { name: 'Eve', age: 20, groupId: 1 }
+];
+
+const filtstudent = (students) => {
+    return students.reduce((previousValue, student) => {
+        if (student.age > 17) {
+            if (!previousValue[student.groupId]) {
+                previousValue[student.groupId] = [];
+            }
+            previousValue[student.groupId].push(student);
+        }
+        return previousValue;
+    }, {});
+};
+
+console.log(filtstudent(students));
+
+//4
+const perevod = (str) => {
+    let total1 = '';
+
+    for (let i = 0; i < str.length; i++) {
+        let charCode = str.charCodeAt(i);
+        total1 += charCode;
+    }
+
+    let total2 = '';
+    for (let j = 0; j < total1.length; j++) {
+        if (total1[j] === '7') {
+            total2 += '1'; 
+        } else {
+            total2 += total1[j]; 
+        }
+    }
+
+    return Number(total1) - Number(total2);
+};
+
+const str4 = prompt("Введите строку");
+console.log(perevod(str4));
+
+//5
+const zadanka5 = (...objects) => {
+    return Object.assign({}, ...objects);
+};
+
+console.log(zadanka5({ a: 1, b: 2 }, { c: 3 })); // { a: 1, b: 2, c: 3 }
+
+
+//6
+const zadanka6 = (floors) => {
+    const bachnya = [];
+    for (let i = 0; i < floors; i++) {
+        const stars = '*'.repeat(2 * i + 1);
+        const probel = ' '.repeat(floors - i - 1);
+        bachnya.push(probel + stars);
+    }
+    return bachnya;
+};
+const floor = prompt("Введите число этажей");
+console.log(zadanka6(floor));
+/*
+[
+  "  *  ",
+  " *** ",
+  "*****"
+]
+*/
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

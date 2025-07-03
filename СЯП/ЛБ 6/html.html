@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1 Заданка
+        let numbers = [10, 20, 30];
+let [y] = numbers;
+console.log(y);
+ 
+// 2 заданка
+let user = {
+    name: 'John',
+    age: 30
+};
+
+let admin = {
+    admin: true,
+    ...user
+};
+
+console.log(admin);
+
+// 3 заданка
+let store = {
+    state: { // 1ур
+        profilePage: { //2ур
+            posts: [ //3ур
+                { id: 1, message: 'Hi', likesCount: 12 },
+                { id: 2, message: 'By', likesCount: 1 }
+            ],
+            newPostText: 'About me',
+        },
+        dialogsPage: {
+            dialogs: [
+                { id: 1, name: 'Valera' },
+                { id: 2, name: 'Andrey' },
+                { id: 3, name: 'Sasha' },
+                { id: 4, name: 'Viktor' },
+            ],
+            messages: [
+               { id: 1, message: 'hi' },
+               { id: 2, message: 'hi hi' },
+               { id: 3, message: 'hi hi hi' },
+        ],
+    },
+    sidebar: [],
+    },
+   
+};
+
+const { state: { profilePage: { posts }, dialogsPage: { dialogs } } } = store;
+
+let likesCounts = posts.map(post => post.likesCount);
+console.log(likesCounts);
+console.log(posts[1].message);
+
+
+let filtr = dialogs.filter(dialog => dialog.id % 2 === 0);
+console.log(filtr);
+
+let hellouser = store.state.dialogsPage.messages.map(message => ({ ...message, message: 'Hello user' }));
+console.log(hellouser);
+
+// 4 заднка
+let tasks = [
+    { id: 1, title: "HTML&CSS", isDone: true },
+    { id: 2, title: "JS", isDone: true },
+    { id: 3, title: "reactJS", isDone: false },
+    { id: 4, title: "Rest API", isDone: false },
+    { id: 5, title: "CraphQL", isDone: false },
+];
+
+let task2 = { id: 6, title: "NodeJS", isDone: false };
+tasks = [...tasks, task2];
+
+console.log(tasks);
+
+// 5 заданка 
+function sumValues(x, y, z) {
+    return x + y + z;
+}
+
+let values = [1, 2, 3];
+let result = sumValues(...values);
+console.log(result); // 6
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

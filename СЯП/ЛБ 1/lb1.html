@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+console.log("Задание 1");    
+
+let q = 5;
+let name = "Name";
+let l = 0;
+let double = 0.23;
+let resul = 1 / 0;
+let answer = true;
+let no = null;
+
+console.log(typeof q);      // number
+console.log(typeof name);   // string
+console.log(typeof l);      // number
+console.log(typeof double);  // number
+console.log(typeof resul);  // number (Infinity)
+console.log(typeof answer);  // boolean
+console.log(typeof no);      // object 
+
+
+console.log("Задание 2");    
+let storona_1=45;
+let storona_2=21;
+let storona_3=5;
+
+let SA =storona_1 * storona_2;
+let SB =  storona_3 * storona_3;
+let otvet = SA / SB;
+
+console.log("Ответ= "+ Math.floor(otvet));
+
+
+
+console.log("Задание 3"); 
+let i = 2;
+let a = ++i;// инкремент: 
+let b = i++;// инкремент: 
+console.log("i:", i); 
+console.log("a:", a); 
+console.log("b:", b); 
+
+
+console.log("Задание 4"); 
+//4.Сравните и объясните «Котик» и «котик», «Котик» и «китик», «Кот» и «Котик»,  «Привет» и «Пока», 73 и «53»,
+// false и 0, 54 и true, 123 и false,   true и «3», 3 и «5мм», 8 и «-2», 34 и «34», null и undefined.  
+//Использовать тернарный оператор.логическое условие и 2 выражения
+let str1 = "Котик";
+let str2 = "котик";
+let result1 = (str1 === str2) ? "Строки равны" : "Строки не равны";
+console.log(result1);//Различие в регистре.
+
+let str3 = "Котик";
+let str4 = "китик";
+let result2 = (str3 === str4) ? "Строки равны" : "Строки не равны";
+console.log(result2);// Различие в буквах.
+
+let str5 = "Кот";
+let str6 = "Котик";
+let result3 = (str5 === str6) ? "Строки равны" : "Строки не равны";
+console.log(result3);//Различная длина строк.
+
+let str7 = "Привет";
+let str8 = "Пока";
+let result4 = (str7 === str8) ? "Строки равны" : "Строки не равны";
+console.log(result4);//Разные строки.
+
+let str9 = 73;
+let str10 = "53";
+let result5 = (str9 === str10) ? "Строки равны" : "Строки не равны";
+console.log(result5);//Разные типы (число и строка).
+
+let str11 = false;
+let str12 = 0;
+let result6 = (str11 === str12) ? "Строки равны" : "Строки не равны";
+console.log(result6);//boolean и number
+
+let str15 = 54;
+let str16 = true;
+let result8 = (str15 === str16) ? "Строки равны" : "Строки не равны";
+console.log(result8);//true при приведении к числу становится 1, что не равно 54.
+
+let str17 = 123;
+let str18 = false;
+let result9 = (str17 === str18) ? "Строки равны" : "Строки не равны";
+console.log(result9);//false при приведении к числу становится 1, что не равно 54.
+
+let str19 = true;
+let str20 = "3";
+let result10 = (str19 === str20) ? "Строки равны" : "Строки не равны";
+console.log(result10);//true при приведении к числу становится 1, а строка «3» — это не число.
+
+let str23 = 3;
+let str24 = "5мм";
+let result12 = (str23 === str24) ? "Строки равны" : "Строки не равны";
+console.log(result12);// Строка «5мм» не может быть приведена к числу
+
+let str25 = 8;
+let str26 = "-2";
+let result13 = (str25 === str26) ? "Строки равны" : "Строки не равны";
+console.log(result13);//Разные значения.
+
+let str27 = 34;
+let str28 = "34";
+let result14 = (str27 === str28) ? "Строки равны" : "Строки не равны";
+console.log(result14);//Разные типы
+
+let str29 = null;
+let str30 = undefined;
+let result15 = (str29 === str30) ? "Строки равны" : "Строки не равны";
+console.log(result15);// Хотя они оба представляют отсутствие значения, это разные типы данных.
+/*
+//задание 5
+const teacher = "Блинов Вася Иванович"; 
+const teacherName = "Вася"; 
+const teacherMiddleName = "Вася Иванович"; 
+const user = prompt("Введите имя:"); 
+
+// Приведение введенных данных к одному регистру для сравнения
+const human = user && user.trim().toLowerCase();
+
+if (human) {
+    if (
+        human === teacher.toLowerCase() ||
+        human === teacherName.toLowerCase() ||
+        human === teacherMiddleName.toLowerCase() ||
+        human.startsWith(teacherName.toLowerCase()) || 
+        human.startsWith(teacherMiddleName.toLowerCase()) 
+    ) {
+        alert("Введенные данные верные.");
+    } else {
+        alert("Введенные данные неверные.");
+    }
+} else {
+    alert("Вы не ввели имя.");
+}
+
+//задание 6
+const rusEx = prompt("Сдал русский экзамен? (да/нет)").toLowerCase() === "да";
+const mathEx = prompt("Сдал математический экзамен? (да/нет)").toLowerCase() === "да";
+const enEx = prompt("Сдал английский экзамен? (да/нет)").toLowerCase() === "да";
+
+// Проверка условий
+if (rusEx && mathEx && enEx) {
+    alert("Поздравляем! Вы переведены на следующий курс.");
+} else if (!rusEx && !mathEx && !enEx) {
+    alert("Вы отчислены.");
+} else {
+    alert("Вам предстоит пересдача.");
+}
+*/
+//задание 7
+console.log(true + true);// 2.
+console.log(0 + "5");//"05".
+console.log(5 + "мм");//"5мм".
+console.log(8 / Infinity);
+console.log(9 *"\n9");//9
+console.log(null - 1);// -1.
+console.log("5" - 2);//3.
+console.log("5px" - 3);//nan
+console.log(true - 3);//-2.
+console.log(7 || 0);//7
+
+/*Задание 8.
+const result = []; // Создаем пустой массив result
+for (let i = 1; i <= 10; i++) {
+    if (i % 2 === 0) { // Проверяем, является ли текущее число четным
+        // Четное число: прибавляем 2 и преобразуем к строке
+        result.push((i + 2).toString()); 
+    } else {
+        // Нечетное число: преобразуем к строке вида "Xмм"
+        result.push(i + "mm"); 
+    }
+}
+console.log(result);
+*/
+/*
+//Задание 9 объекст
+const week = {
+    1: "Понедельник",
+    2: "Вторник",
+    3: "Среда",
+    4: "Четверг",
+    5: "Пятница",
+    6: "Суббота",
+    7: "Воскресенье"
+};
+
+// Запрос номера дня недели у пользователя
+const day = Number(prompt("Введите номер дня недели (1-7):"));
+
+if (day >= 1 && day <= 7) {
+    console.log(`День недели: ${week[day]}`);
+} else {
+    console.log("Некорректный номер дня. Пожалуйста, введите число от 1 до 7.");
+}
+*/
+//Задание 9 массив 
+
+const week1 = [
+    "Понедельник",  // 0 
+    "Вторник",      // 1
+    "Среда",        // 2
+    "Четверг",      // 3
+    "Пятница",      // 4
+    "Суббота",      // 5
+    "Воскресенье"   // 6 
+];
+
+// Запрос номера дня недели у пользователя
+const day1 = Number(prompt("Введите номер дня недели (1-7):"));
+
+if (day1 >= 1 && day1 <= 7) {
+    console.log(`День недели: ${week1[day1 - 1]}`);
+} else {
+    console.log("Некорректный номер дня. Пожалуйста, введите число от 1 до 7.");
+}
+
+
+//задание 10
+
+
+function func(param1 = "dfghjk", param2, param3) {
+
+        param3 = prompt("Введите третий параметр:");  
+
+    // Возвращаем составленную строку
+    return `${param1} ${param2} ${param3}`;
+}
+
+const otvet1 = func(undefined,"sdfg");
+console.log(otvet1);
+
+
+//задание 11
+
+
+function params1(a, b) {
+    if (a === b) {
+        return 4 * a; // Периметр квадрата
+    } else {
+        return a * b; // Площадь прямоугольника
+    }
+}
+
+console.log(params1(4, 4)); 
+console.log(params1(4, 5)); 
+
+const params2 = function(a, b) {
+    if (a === b) {
+        return 4 * a; // Периметр квадрата
+    } else {
+        return a * b; // Площадь прямоугольника
+    }
+};
+
+console.log(params2(4, 4)); 
+console.log(params2(4, 5)); 
+
+const params = (a, b) => {
+    if (a === b) {
+        return 4 * a; // Периметр квадрата
+    } else {
+        return a * b; // Площадь прямоугольника
+    }
+};
+
+console.log(params(4, 4)); 
+console.log(params(4, 5)); 
+</script>
+</body>
+</html> 
